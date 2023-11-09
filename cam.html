@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Hiển thị Camera</h2>
+
+<video id="videoElement" width="400" height="300" autoplay></video>
+
+<script>
+    // Truy cập camera
+    const video = document.getElementById('videoElement');
+
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (error) {
+                console.log("Đã xảy ra lỗi!", error);
+            });
+    }
+</script>
+
+</body>
+</html>
